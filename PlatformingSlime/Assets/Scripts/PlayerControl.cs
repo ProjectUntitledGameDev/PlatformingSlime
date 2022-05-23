@@ -7,13 +7,13 @@ public class PlayerControl : MonoBehaviour
     public LayerMask groundMask;
     private bool grounded;
     public Transform ground;
-    private Vector2 movement;
+    private Vector3 movement;
     private float speed = 5f;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     public float gravity;
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+        rb = this.GetComponent<Rigidbody>();
     }
 
     
@@ -21,8 +21,6 @@ public class PlayerControl : MonoBehaviour
     {
         
         movement.x = Input.GetAxisRaw("Horizontal");
-        
-        
 
         if (!grounded)
         {
@@ -31,7 +29,10 @@ public class PlayerControl : MonoBehaviour
                 grounded = true;
             }
         }
-        Debug.Log(Physics.Raycast(ground.position, Vector3.down, 10, groundMask));
+
+
+        Debug.DrawRay(ground.position, Vector3.down, Color.red);
+        Debug.Log(Physics.Raycast(ground.position, Vector3.down, 1, groundMask));
     }
     private void FixedUpdate()
     {
