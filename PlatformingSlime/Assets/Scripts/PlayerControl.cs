@@ -22,14 +22,15 @@ public class PlayerControl : MonoBehaviour
         
         movement.x = Input.GetAxisRaw("Horizontal");
 
-        if (!grounded)
+        if (Physics.Raycast(ground.position, Vector3.down, 1, groundMask))
         {
-            if (Physics.Raycast(ground.position, Vector3.down, 1, groundMask))
-            {
-                grounded = true;
-            }
+            grounded = true;
         }
-        if (Input.GetButtonDown("Jump"))
+        else
+        {
+            grounded = false;
+        }
+        if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(new Vector3(0, 10, 0), ForceMode.Impulse);
             Debug.Log("hi");
