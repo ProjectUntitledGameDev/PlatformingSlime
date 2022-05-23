@@ -29,7 +29,11 @@ public class PlayerControl : MonoBehaviour
                 grounded = true;
             }
         }
-
+        if (Input.GetButtonDown("Jump"))
+        {
+            rb.AddForce(new Vector3(0, 10, 0), ForceMode.Impulse);
+            Debug.Log("hi");
+        }
 
         Debug.DrawRay(ground.position, Vector3.down, Color.red);
         Debug.Log(Physics.Raycast(ground.position, Vector3.down, 1, groundMask));
