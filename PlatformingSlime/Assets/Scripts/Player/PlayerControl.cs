@@ -7,10 +7,10 @@ public class PlayerControl : MonoBehaviour
     public LayerMask groundMask;
     private bool grounded;
     public Transform ground;
-    private float speed = 5f;
+    private float speed = 10f;
     private CharacterController controller;
     public float gravity;
-    private float jumpHeight = 1.0f;
+    private float jumpHeight = 2.5f;
     private Vector3 playerVelocity;
 
     void Start()
