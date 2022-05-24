@@ -9,7 +9,7 @@ public class PlayerControl : MonoBehaviour
     public Transform ground;
     private float speed = 10f;
     private CharacterController controller;
-    public float gravity;
+    private float gravity = -20;
     private float jumpHeight = 2.5f;
     private Vector3 playerVelocity;
 
