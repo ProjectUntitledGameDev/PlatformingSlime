@@ -14,7 +14,7 @@ public class AltPlayerController : MonoBehaviour
     public GameObject blackScreen;
     private Rigidbody rb;
 
-    void Start()
+    void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
         globalData = GameObject.FindGameObjectWithTag("GlobalData").GetComponent<GlobalData>();

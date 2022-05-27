@@ -591,7 +591,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7755681, y: 1}
+    m_SensorSize: {x: 1.7771811, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2226,6 +2226,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2656649467723740048, guid: 5d4ffc7b746e3a5408c9ed50e0475d58, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4186803063761868032, guid: 5d4ffc7b746e3a5408c9ed50e0475d58, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2274,5 +2278,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4186803063761868039, guid: 5d4ffc7b746e3a5408c9ed50e0475d58, type: 3}
+    - {fileID: 4186803063761868033, guid: 5d4ffc7b746e3a5408c9ed50e0475d58, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5d4ffc7b746e3a5408c9ed50e0475d58, type: 3}

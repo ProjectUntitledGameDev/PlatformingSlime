@@ -7,17 +7,29 @@ using UnityEngine.UI;
 public class GlobalData : MonoBehaviour
 {
     public Transform spawn;
-
+    private void Start()
+    {
+        blackScreen.SetActive(true);
+        fadeInOrOut = false;
+        StartCoroutine(FadeToBlack(null, false, false, 0));
+    }
     public void ResetPlayer(GameObject player)
     {
         fadeInOrOut = true;
-        StartCoroutine(FadeToBlack(player, false, 0));
+        StartCoroutine(FadeToBlack(player, false, true, 0));
     }
     private float fadeSpeed = 5;
     private float fadeAmount;
     private bool fadeInOrOut;
     public GameObject blackScreen;
-    IEnumerator FadeToBlack(GameObject player, bool loadLevel, int sceneIndex)
+
+    public void StartLevel(int level)
+    {
+        fadeInOrOut = true;
+        StartCoroutine(FadeToBlack(null, true, false, level));
+    }
+
+    IEnumerator FadeToBlack(GameObject player, bool loadLevel, bool respawn, int sceneIndex)
     {
         blackScreen.SetActive(true);
         Color screenColour = blackScreen.GetComponent<Image>().color;
@@ -34,11 +46,14 @@ public class GlobalData : MonoBehaviour
             {
                 SceneManager.LoadScene(sceneIndex);
             }
-            else
+            else 
             {
-                player.transform.position = spawn.position;
-                fadeInOrOut = false;
-                StartCoroutine(FadeToBlack(player, false, 0));
+                if (respawn)
+                {
+                    player.transform.position = spawn.position;
+                    fadeInOrOut = false;
+                    StartCoroutine(FadeToBlack(player, false, false, 0));
+                }
             }
         }
         else
